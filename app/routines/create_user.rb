@@ -30,7 +30,7 @@ class CreateUser
       user.last_name = options[:last_name]
       user.full_name = options[:full_name]
       user.title = options[:title]
-      user.is_temp = true  # all users start as temp
+      user.state = options[:state] || 'temp'  # all users default to starting as temp.
     end
 
     transfer_errors_from(outputs[:user], {type: :verbatim})
